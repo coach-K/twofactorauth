@@ -33,6 +33,7 @@ $(document).ready(() => {
     .then(res => {
       console.log(res);
       if (res.validated) {
+        localStorage.setItem('secret_welcome', JSON.stringify(res));
         window.location = '/welcome.html';
       } else {
         $('#validateButton').html('Validate');

@@ -73,7 +73,7 @@ app.post("/api/verify", (req,res) => {
     if (verified) {
       // Update user data
       db.push(path, { id: user.id, email, fullname: user.fullname, password: user.password, secret: user.temp_secret });
-      res.json({ verified: true })
+      res.json({ verified: true, fullname: user.fullname })
     } else {
       res.json({ verified: false})
     }
@@ -99,7 +99,7 @@ app.post("/api/validate", (req,res) => {
       window: 1
     });
     if (tokenValidates) {
-      res.json({ validated: true })
+      res.json({ validated: true, fullname: user.fullname })
     } else {
       res.json({ validated: false})
     }

@@ -34,6 +34,7 @@ $(document).ready(() => {
     .then(res => {
       console.log(res);
       if (res.verified) {
+        localStorage.setItem('secret_welcome', JSON.stringify(res));
         window.location = '/welcome.html';
       } else {
         $('#verifyButton').html('Verify');
